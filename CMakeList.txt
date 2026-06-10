@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.10)
+project(GeoPackageSearchBackend)
+
+set(CMAKE_CXX_STANDARD 17)
+
+# 查找系统的 GDAL 库
+find_package(GDAL REQUIRED)
+
+add_executable(map_search_demo main.cpp)
+
+# 链接 GDAL
+target_include_directories(map_search_demo PRIVATE ${GDAL_INCLUDE_DIRS})
+target_link_libraries(map_search_demo PRIVATE ${GDAL_LIBRARIES})
